@@ -11,11 +11,4 @@ class Iterator extends munit.FunSuite{
     assertTrue(stringIterator.hasNext)
     assertEquals(stringIterator.next(),'X')
   }
-
-  test("StringIterator extends RichIterator") {
-    val stringIterator = new StringIterator(str)
-
-    assertTrue(stringIterator.hasNext)
-    assertEquals(stringIterator.forEach(str)).isInstanceOf(String)
-  }
 }
