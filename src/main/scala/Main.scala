@@ -1,31 +1,52 @@
-@main
-def Main(args: String*): Unit =
-  runExample("Trait Params")(TraitParams.test())
+import scala.annotation.MainAnnotation
+//@main
+//def Main(args: String*): Unit =
+//  runExample("Trait Params")(TraitParams.test())
+//
+//  runExample("Enum Types")(EnumTypes.test())
+//
+//  runExample("Context Functions")(ContextFunctions.test())
+//
+//  runExample("Given Instances")(GivenInstances.test())
+//
+//  runExample("Conversion")(Conversion.test())
+//
+//  runExample("Union Types")(UnionTypes.test())
+//
+//  runExample("Intersection Types")(IntersectionTypes.test())
+//
+//  runExample("Type Lambda")(TypeLambdas.test())
+//
+//  runExample("Multiversal Equality")(MultiversalEquality.test())
+//
+//  runExample("Parameter Untupling")(ParameterUntupling.test())
+//
+//  runExample("Structural Types")(StructuralTypes.test())
+//
+//  runExample("Pattern Matching")(PatternMatching.test())
+//end Main
+//
+//private def runExample(name: String)(f: => Unit): Unit =
+//  println(Console.MAGENTA + s"$name example:" + Console.RESET)
+//  f
+//  println()
 
-  runExample("Enum Types")(EnumTypes.test())
+abstract class A {
+  val message: String
+}
 
-  runExample("Context Functions")(ContextFunctions.test())
+class B extends A {
+  override val message: String = "I'm instance of B"
+}
 
-  runExample("Given Instances")(GivenInstances.test())
+trait C extends A{
+  def loudMessage = message.toUpperCase()
+}
 
-  runExample("Conversion")(Conversion.test())
+class D extends B with C
 
-  runExample("Union Types")(UnionTypes.test())
-
-  runExample("Intersection Types")(IntersectionTypes.test())
-
-  runExample("Type Lambda")(TypeLambdas.test())
-
-  runExample("Multiversal Equality")(MultiversalEquality.test())
-
-  runExample("Parameter Untupling")(ParameterUntupling.test())
-
-  runExample("Structural Types")(StructuralTypes.test())
-
-  runExample("Pattern Matching")(PatternMatching.test())
-end Main
-
-private def runExample(name: String)(f: => Unit): Unit =
-  println(Console.MAGENTA + s"$name example:" + Console.RESET)
-  f
-  println()
+//@Runnable
+//def Main(args: String*): Unit =
+//  val d = new D
+//  println(d.loudMessage)
+//  println(d.message)
