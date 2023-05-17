@@ -1,3 +1,17 @@
+abstract class A {
+  val message: String
+}
+
+class B extends A {
+  override val message: String = "I'm instance of B"
+}
+
+trait C extends A{
+  def loudMessage = message.toUpperCase()
+}
+
+class D extends B with C
+
 abstract class AbsIterator {
   type T
   def hasNext: Boolean
