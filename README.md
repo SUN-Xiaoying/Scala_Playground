@@ -1,48 +1,30 @@
-# Example sbt project that compiles using Scala 3
+# Why Scala is cool?
+No `static`, No `null`, No "back doors" (logs, exceptions)
 
-[![Continuous Integration](https://github.com/scala/scala3-example-project/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/scala/scala3-example-project/actions/workflows/ci.yml)
+# Checklist
 
-## Usage
+## Scala vs. Java
 
-This is a normal sbt project. You can start the sbt shell using `sbt` then compile code with `compile`, run the main
-method with `run`, run the tests with `test` and start a REPL using `console`.
+| Scala          | Java     |
+|----------------|----------|
+| `object`       | `static` |
+| `$colon$colon` | `List`   |
 
-If compiling this example project fails, you probably have a global sbt plugin
-that does not work with Scala 3. You might try disabling plugins in
-`~/.sbt/1.0/plugins` and `~/.sbt/1.0`.
+## Inventory
+| Functions              | Example                |
+|------------------------|------------------------|
+| `nums.sortWith(_ < _)` | List(1, 3, 5, 7, 11)   |
+| `nums.sortWith(_ > _)` | List(11, 7, 5, 3, 1)   |
+| `for/yield`            ||
 
-## Making a new Scala 3 project
+# What are we talking about, when it comes to FP
 
-The fastest way to start a new Scala 3 project is to use one of the following templates:
+- Immutable values
+- Pure functions
+- Functions are values
+- Functional error handling
 
-* [Minimal Scala 3 project](https://github.com/scala/scala3.g8)
-* [Scala 3 project that cross-compiles with Scala 2](https://github.com/scala/scala3-cross.g8)
+# How to be a cool FP?
 
-## Using Scala 3 in an existing project
-
-You will need to make the following adjustments to your build:
-
-### project/build.properties
-
-```
-sbt.version=1.8.2
-```
-
-You must use sbt 1.5.5 or newer; older versions of sbt are not supported.
-
-### build.sbt
-
-Set the Scala 3 version:
-
-```scala
-scalaVersion := "3.2.2"
-```
-
-### Getting your project to compile with Scala 3
-
-For help with porting an existing Scala 2 project to Scala 3, see the
-[Scala 3 migration guide](https://docs.scala-lang.org/scala3/guides/migration/compatibility-intro.html).
-
-## Need help?
-
-https://www.scala-lang.org/community/ has links.
+- No `class` with var => `case class`
+    - `case class`, whose constructor parameters are `val` by default! 
